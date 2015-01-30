@@ -8,8 +8,8 @@ path {
 }
 </style>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v0.min.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/topojson.v0.min.js"></script>
 <script>
 var width = 960,
     height = 500;
@@ -39,14 +39,31 @@ d3.json("data/world-50m.json", function(error, topology) {
 
 // load and display the cities
 d3.csv("data/places.csv", function(error, data) {
-    g.selectAll("circle")
+    var node = g.selectAll("circle")
        .data(data)
        .enter()
-       .append("a")
-				  .attr("xlink:href", function(d) {
-					  return "https://www.google.com/search?q="+d.city;}
-				  )
-       .append("circle")
+       .append("g")
+       .attr("class","place");
+/*
+    node.append("rect")
+        .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; })
+        .attr("x", "0.8em")
+        .attr("y", "-0.7em")
+	.attr("width", 10)
+	.attr("height", 20)
+	.style("fill","blue");
+    node.append("text")
+       .attr("class", "place-label")
+       .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; })
+       .attr("dy", "0.3em")
+       .attr("dx", "1.2em")
+       .style("fill","white")
+       .style("line","white")
+       .text(function(d) { return d.place; });
+    node.selectAll('rect')
+	.attr("width", function(d) {return (this.parentNode.getBBox().width)+5;});
+*/
+    node.append("circle")
        .attr("cx", function(d) {
                return projection([d.lon, d.lat])[0];
        })

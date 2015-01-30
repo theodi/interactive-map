@@ -1,13 +1,37 @@
-code,city,country,lat,lon,color,radius
-ZNZ,ZANZIBAR,TANZANIA,-6.13,39.31,red,5
-TYO,TOKYO,JAPAN,35.68,139.76,#FF0080,5
-AKL,AUCKLAND,NEW ZEALAND,-36.85,174.78,blue,5
-BKK,BANGKOK,THAILAND,13.75,100.48,yellow,5
-DEL,DELHI,INDIA,29.01,77.38,red,5
-SIN,SINGAPORE,SINGAPOR,1.36,103.75,green,5
-BSB,BRASILIA,BRAZIL,-15.67,-47.43,blue,5
-RIO,RIO DE JANEIRO,BRAZIL,-22.90,-43.24,yellow,5
-YTO,TORONTO,CANADA,43.64,-79.40,red,5
-IPC,EASTER ISLAND,CHILE,-27.11,-109.36,green,5
-SEA,SEATTLE,USA,47.61,-122.33,blue,5
-SEA,SEATTLE,USA,47.61,-122.33,white,2
+place,country,lat,lon,color,radius
+Devon,UK,50.77,-3.99,blue,5
+Devon,UK,50.77,-3.99,white,2
+Brighton,UK,50.82,-0.13,blue,5
+Brighton,UK,50.82,-0.13,white,2
+Canada,Canada,56.13,-106.35,blue,5
+Canada,Canada,56.13,-106.35,white,2
+Chicago,USA,41.88,-87.63,blue,5
+Chicago,USA,41.88,-87.63,white,2
+Dubai,Dubai,25.20,55.27,blue,5
+Dubai,Dubai,25.20,55.27,white,2
+Hawaii,Hawaii,21.31,-157.86,blue,5
+Hawaii,Hawaii,21.31,-157.86,white,2
+Leeds,UK,53.80,-1.55,blue,5
+Leeds,UK,53.80,-1.55,white,2
+Manchester,UK,53.48,-2.24,blue,5
+Manchester,UK,53.48,-2.24,white,2
+North Caolina,USA,35.76,-79.02,blue,5
+North Caolina,USA,35.76,-79.02,white,2
+Osaka,Japan,34.69,135.50,blue,5
+Osaka,Japan,34.69,135.50,white,2
+Paris,France,48.86,2.35,blue,5
+Paris,France,48.86,2.35,white,2
+Philadelphia,USA,39.95,-75.17,blue,5
+Philadelphia,USA,39.95,-75.17,white,2
+Seoul,"Korea, Republic of",37.57,126.98,blue,5
+Seoul,"Korea, Republic of",37.57,126.98,white,2
+Trento,Italy,46.07,11.12,blue,5
+Trento,Italy,46.07,11.12,white,2
+Buenos Aires,Argentina,-34.60,-58.38,blue,5
+Buenos Aires,Argentina,-34.60,-58.38,white,2
+Gothenburg,Sweeden,57.71,11.97,blue,5
+Gothenburg,Sweeden,57.71,11.97,white,2
+Moscow,Russia,55.76,37.62,blue,5
+Moscow,Russia,55.76,37.62,white,2
+Athens,Greece,37.98,23.73,blue,5
+Athens,Greece,37.98,23.73,white,2
