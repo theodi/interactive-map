@@ -6,6 +6,9 @@ path {
   stroke-width: 0.25px;
   fill: grey;
 }
+svg {
+  background: #6bb9e6;
+}
 </style>
 <body>
 <script src="js/d3.v3.min.js"></script>
@@ -20,19 +23,6 @@ var margin = {top: 10, left: 10, bottom: 10, right: 10}
 var projection = d3.geo.mercator()
     .scale(220)
     .translate([width / 2, height / 2 + 80 ]);
-/*
-var width = 960;
-var height = 500;
-
-var projection = d3.geo.mercator()
-//var projection = d3.geo.azimuthalEqualArea()
-                .translate([410, 260])
-                .scale(300);
-*/
-//var projection = d3.geo.mercator()
-//    .center([0, 5 ])
-//   .scale(200)
-//    .rotate([-180,0]);
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -42,6 +32,107 @@ var path = d3.geo.path()
     .projection(projection);
 
 var g = svg.append("g");
+
+var distance = 200;
+
+var rect = svg.append("rect")
+	.attr("x", "20px")
+	.attr("y", height - (distance - 0) + "px")
+	.attr("width", 210)
+	.attr("height", 155)
+	.attr("rx", 5)
+	.attr("ry", 5)
+	.style("fill","gray")
+	.style("stroke","black");
+
+svg.append("circle")
+       .attr("cx", "40px")
+       .attr("cy", height - (distance - 25) + "px")
+       .attr("r", 8)
+       .style("fill", "black");
+
+svg.append("circle")
+       .attr("cx", "40px")
+       .attr("cy", height - (distance - 25) + "px")
+       .attr("r", 3)
+       .style("fill", "white");
+
+svg.append("text")
+       .attr("dy", height - (distance - 30) + "px")
+       .attr("dx", "60px")
+       .attr("font-family", "sans-serif")
+       .style("font-weight", "bold")
+       .style("fill","black")
+       .style("line","black")
+       .style("font-size", "1em")
+       .text("ODI Node");
+
+svg.append("circle")
+       .attr("cx", "40px")
+       .attr("cy", height - (distance - 60) + "px")
+       .attr("r", 8)
+       .style("fill", "#black");
+
+svg.append("circle")
+       .attr("cx", "40px")
+       .attr("cy", height - (distance - 60) + "px")
+       .attr("r", 3)
+       .style("fill", "#b13198");
+
+svg.append("text")
+       .attr("dy", height - (distance - 65) + "px")
+       .attr("dx", "60px")
+       .attr("font-family", "sans-serif")
+       .style("font-weight", "bold")
+       .style("fill","#black")
+       .style("line","#black")
+       .style("font-size", "1em")
+       .text("ODI Training Node");
+
+svg.append("circle")
+       .attr("cx", "40px")
+       .attr("cy", height - (distance - 95) + "px")
+       .attr("r", 8)
+       .style("fill", "#0dbc37");
+
+svg.append("circle")
+       .attr("cx", "40px")
+       .attr("cy", height - (distance - 95) + "px")
+       .attr("r", 3)
+       .style("fill", "white");
+    
+svg.append("text")
+       .attr("dy", height - (distance - 100) + "px")
+       .attr("dx", "60px")
+       .attr("font-family", "sans-serif")
+       .style("font-weight", "bold")
+       .style("fill","#black")
+       .style("line","#black")
+       .style("font-size", "1em")
+       .text("Data project");
+
+svg.append("circle")
+       .attr("cx", "40px")
+       .attr("cy", height - (distance - 130) + "px")
+       .attr("r", 8)
+       .style("fill", "#f9bc26");
+
+svg.append("circle")
+       .attr("cx", "40px")
+       .attr("cy", height - (distance - 130) + "px")
+       .attr("r", 3)
+       .style("fill", "white");
+    
+svg.append("text")
+       .attr("dy", height - (distance - 135) + "px")
+       .attr("dx", "60px")
+       .attr("font-family", "sans-serif")
+       .style("font-weight", "bold")
+       .style("fill","#black")
+       .style("line","#black")
+       .style("font-size", "1em")
+       .text("Where we've trained");
+	
 
 // load and display the World
 d3.json("data/world-50m.json", function(error, topology) {
@@ -53,23 +144,24 @@ d3.csv("data/places.csv", function(error, data) {
        .enter()
        .append("g")
        .attr("class","place");
-    node.append("rect")
+/*    node.append("rect")
         .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; })
-        .attr("x", "0.2em")
-        .attr("y", "-0.25em")
+        .attr("x", "0.6em")
+        .attr("y", "-0.6em")
 	.attr("width", 20)
-	.attr("height", 8)
+	.attr("height", 18)
 	.style("visibility", function(d) { if (d.radius > 2) { return "visible"; } else {return "hidden"; }})
-	.style("fill","blue");
+	.style("fill","black");
+*/
     node.append("text")
        .attr("class", "place-label")
        .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; })
-       .attr("dy", "0.3em")
-       .attr("dx", "1.2em")
-       .style("fill","white")
-       .style("line","white")
-       .style("font-size", "0.4em")
-	.style("visibility", function(d) { if (d.radius > 2) { return "visible"; } else {return "hidden"; }})
+       .attr("dy", "0.4em")
+       .attr("dx", "0.5em")
+       .style("fill","black")
+       .style("line","black")
+       .style("font-size", "1em")
+	.style("visibility", function(d) { if (d.radius > 2) { return "hidden"; } else {return "hidden"; }})
        .text(function(d) { return d.place; });
     node.selectAll('rect')
 	.attr("width", function(d) {return (this.parentNode.getBBox().width)+5;});
@@ -92,6 +184,7 @@ g.selectAll("path")
     .enter()
       .append("path")
       .attr("d", path)
+      .style("fill","#e96421") 
 });
 
 // zoom and pan
@@ -106,11 +199,9 @@ var zoom = d3.behavior.zoom()
 	g.selectAll("circle")
 		.attr("r", function(d) { return d.radius / d3.event.scale;})
 	g.selectAll("text") 
-//		.style("visibility", function(d) { if (d.radius > 2 && d3.event.scale > 2) { return "visible"; } else { return "hidden";}})
-       		.style("font-size", function(d) { var ret = 0.8 / d3.event.scale; if (ret > 0.4) ret=0.4; return ret+ "em";})
-	g.selectAll("rect") 
-		.attr("width", function(d) {return (this.parentNode.getBBox().width)+5;});
-//		.style("visibility", function(d) { if (d.radius > 2 && d3.event.scale > 2) { return "visible"; } else { return "hidden";}})
+		.style("visibility", function(d) { if (d.radius > 2 && d3.event.scale > 1.5) { return "visible"; } else { return "hidden";}})
+       		.style("font-size", function(d) { var ret = 1 / d3.event.scale; if (ret > 1) ret=1; return ret+ "em";})
+       		.attr("dy", function(d) { var ret = 0.4 / d3.event.scale + (0.3/d3.event.scale); return ret + "em";})
 
   });
 
