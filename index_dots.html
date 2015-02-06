@@ -160,7 +160,7 @@ svg.append("text")
 d3.json("data/world-50m.json", function(error, topology) {
 
 // load and display the cities
-d3.csv("data/places.csv", function(error, data) {
+d3.csv("data/places_dots.csv", function(error, data) {
     var node = g.selectAll("circle")
        .data(data)
        .enter()

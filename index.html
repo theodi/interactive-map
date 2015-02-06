@@ -14,6 +14,32 @@ svg {
 <script src="js/d3.v3.min.js"></script>
 <script src="js/topojson.v0.min.js"></script>
 <script>
+
+function getImageSVG(image_data,type) {
+	for (i=0;i<image_data.length;i++) {
+		thing = image_data[i];
+		if (thing.type == type) {
+			return thing.icon;
+		}
+	}
+}
+function getImageWidth(image_data,type) {
+	for (i=0;i<image_data.length;i++) {
+		thing = image_data[i];
+		if (thing.type == type) {
+			return thing.width;
+		}
+	}
+}
+function getImageHeight(image_data,type) {
+	for (i=0;i<image_data.length;i++) {
+		thing = image_data[i];
+		if (thing.type == type) {
+			return thing.height;
+		}
+	}
+}
+
 var margin = {top: 10, left: 10, bottom: 10, right: 10}
   , width = parseInt(d3.select('body').style('width'))
   , width = width - margin.left - margin.right
@@ -38,7 +64,8 @@ var image_data = {};
 
 d3.csv("data/legend.csv", function(error, data) {
    image_data = data;
-   var node = g.selectAll("svg")
+
+   var node = g.selectAll("body")
        .data(data)
        .enter()
        .append("g")
@@ -54,9 +81,9 @@ d3.csv("data/legend.csv", function(error, data) {
        .attr("y", function(d,i) { return height - distance - (60 * i) - d.offset_y + "px";});
  
    var node = g.selectAll("svg")
-	.data(data)
-	.enter()
-	.append("text")
+       .data(data)
+       .enter()
+       .append("text")
        .attr("dy", function(d,i) { return height - distance - (60 * i) + 25 + "px";})
        .attr("dx", "90px")
        .attr("font-family", "sans-serif")
@@ -64,8 +91,7 @@ d3.csv("data/legend.csv", function(error, data) {
        .style("fill","black")
        .style("line","black")
        .style("font-size", "1em")
-       .text(function(d) {return d.label;});
-       
+       .text(function(d) {return d.label;});     
 });
 
 // load and display the World
@@ -106,32 +132,6 @@ d3.csv("data/places.csv", function(error, data) {
        })
 });
 
-
-function getImageSVG(image_data,type) {
-	for (i=0;i<image_data.length;i++) {
-		thing = image_data[i];
-		if (thing.type == type) {
-			return thing.icon;
-		}
-	}
-}
-function getImageWidth(image_data,type) {
-	for (i=0;i<image_data.length;i++) {
-		thing = image_data[i];
-		if (thing.type == type) {
-			return thing.width;
-		}
-	}
-}
-function getImageHeight(image_data,type) {
-	for (i=0;i<image_data.length;i++) {
-		thing = image_data[i];
-		if (thing.type == type) {
-			return thing.height;
-		}
-	}
-}
-
 g.selectAll("path")
       .data(topojson.object(topology, topology.objects.countries)
           .geometries)
@@ -158,6 +158,7 @@ var zoom = d3.behavior.zoom()
 			if (nw < maxwidth) {
 				return maxwidth;
 			}
+			console.log(nw);
 			return nw;
 		})
 		.attr("height", function(d) { 
