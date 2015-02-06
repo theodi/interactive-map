@@ -1,65 +1,1 @@
-place,country,lat,lon,color,radius
-Devon,UK,50.77,-3.99,black,5
-Devon,UK,50.77,-3.99,white,2
-Brighton,UK,50.82,-0.13,black,5
-Brighton,UK,50.82,-0.13,white,2
-Chicago,USA,41.88,-87.63,black,5
-Chicago,USA,41.88,-87.63,white,2
-Dubai,Dubai,25.20,55.27,black,5
-Dubai,Dubai,25.20,55.27,#b13198,2
-Hawaii,Hawaii,21.31,-157.86,black,5
-Hawaii,Hawaii,21.31,-157.86,white,2
-Leeds,UK,53.80,-1.55,black,5
-Leeds,UK,53.80,-1.55,#b13198,2
-Manchester,UK,53.48,-2.24,black,5
-Manchester,UK,53.48,-2.24,white,2
-North Caolina,USA,35.76,-79.02,black,5
-North Caolina,USA,35.76,-79.02,#b13198,2
-Osaka,Japan,34.69,135.50,black,5
-Osaka,Japan,34.69,135.50,white,2
-Paris,France,48.86,2.35,black,5
-Paris,France,48.86,2.35,#b13198,2
-Philadelphia,USA,39.95,-75.17,black,5
-Philadelphia,USA,39.95,-75.17,white,2
-Seoul,"Korea, Republic of",37.57,126.98,black,5
-Seoul,"Korea, Republic of",37.57,126.98,white,2
-Trento,Italy,46.07,11.12,black,5
-Trento,Italy,46.07,11.12,white,2
-Buenos Aires,Argentina,-34.60,-58.38,black,5
-Buenos Aires,Argentina,-34.60,-58.38,white,2
-Gothenburg,Sweeden,57.71,11.97,black,5
-Gothenburg,Sweeden,57.71,11.97,white,2
-Moscow,Russia,55.76,37.62,black,5
-Moscow,Russia,55.76,37.62,white,2
-Athens,Greece,37.98,23.73,black,5
-Athens,Greece,37.98,23.73,white,2
-Queensland,Australia,-27.46,153.02,black,5
-Queensland,Australia,-27.46,153.02,white,2
-Toronto,Canada,43.65,-79.38,black,5
-Toronto,Canada,43.65,-79.38,white,2
-Sheffield,UK,53.38,-1.47,black,5
-Sheffield,UK,53.38,-1.47,white,2
-Amsterdam,Netherlands,53.37,4.89,black,5
-Amsterdam,Netherlands,53.37,4.89,white,2
-Rio,Brazil,-22.91,-43.17,black,5
-Rio,Brazil,-22.91,-43.17,white,2
-Burkina Faso,Africa,12.23,-1.56,#0dbc37,5
-Burkina Faso,Africa,12.23,-1.56,white,2
-Mexico City,Mexico,19.43,-99.13,#0dbc37,5
-Mexico City,Mexico,19.43,-99.13,white,2
-Botswana,Africa,-22.33,24.68,#0dbc37,5
-Botswana,Africa,-22.33,24.68,white,2
-Morroco,Africa,31.79,-7.09,#0dbc37,5
-Morroco,Africa,31.79,-7.09,white,2
-Kuala Lumpur,Malaysia,3.14,101.69,#0dbc37,5
-Kuala Lumpur,Malaysia,3.14,101.69,white,2
-Istanbul,Turkey,41.01,28.98,#f9bc26,5
-Istanbul,Turkey,41.01,28.98,white,2
-Singapore,Singapore,1.35,101.82,#f9bc26,5
-Singapore,Singapore,1.35,101.82,white,2
-Kyrgyzstan,Asia,41.20,74.77,#f9bc26,5
-Kyrgyzstan,Asia,41.20,74.77,white,2
-Edinburgh,Scotland,55.95,-3.19,#f9bc26,5
-Edinburgh,Scotland,55.95,-3.19,white,2
-Newport,Wales,51.58,-2.30,#f9bc26,5
-Newport,Wales,51.58,-2.30,white,2
+place,country,lat,lon,color,radiusDevon,UK,50.77,-3.99,black,5Devon,UK,50.77,-3.99,white,2Brighton,UK,50.82,-0.13,black,5Brighton,UK,50.82,-0.13,white,2Chicago,USA,41.88,-87.63,black,5Chicago,USA,41.88,-87.63,white,2Dubai,Dubai,25.2,55.27,black,5Dubai,Dubai,25.2,55.27,#b13198,2Hawaii,Hawaii,21.31,-157.86,black,5Hawaii,Hawaii,21.31,-157.86,white,2Leeds,UK,53.8,-1.55,black,5Leeds,UK,53.8,-1.55,#b13198,2Manchester,UK,53.48,-2.24,black,5Manchester,UK,53.48,-2.24,white,2North Caolina,USA,35.76,-79.02,black,5North Caolina,USA,35.76,-79.02,#b13198,2Osaka,Japan,34.69,135.5,black,5Osaka,Japan,34.69,135.5,white,2Paris,France,48.86,2.35,black,5Paris,France,48.86,2.35,#b13198,2Philadelphia,USA,39.95,-75.17,black,5Philadelphia,USA,39.95,-75.17,white,2Seoul,"Korea, Republic of",37.57,126.98,black,5Seoul,"Korea, Republic of",37.57,126.98,white,2Trento,Italy,46.07,11.12,black,5Trento,Italy,46.07,11.12,white,2Buenos Aires,Argentina,-34.6,-58.38,black,5Buenos Aires,Argentina,-34.6,-58.38,white,2Gothenburg,Sweeden,57.71,11.97,black,5Gothenburg,Sweeden,57.71,11.97,white,2Moscow,Russia,55.76,37.62,black,5Moscow,Russia,55.76,37.62,white,2Athens,Greece,37.98,23.73,black,5Athens,Greece,37.98,23.73,white,2Queensland,Australia,-27.46,153.02,black,5Queensland,Australia,-27.46,153.02,white,2Toronto,Canada,43.65,-79.38,black,5Toronto,Canada,43.65,-79.38,white,2Sheffield,UK,53.38,-1.47,black,5Sheffield,UK,53.38,-1.47,white,2Amsterdam,Netherlands,53.37,4.89,black,5Amsterdam,Netherlands,53.37,4.89,white,2Rio,Brazil,-22.91,-43.17,black,5Rio,Brazil,-22.91,-43.17,white,2Burkina Faso,Africa,12.23,-1.56,#0dbc37,5Burkina Faso,Africa,12.23,-1.56,white,2Mexico City,Mexico,19.43,-99.13,#0dbc37,5Mexico City,Mexico,19.43,-99.13,white,2Botswana,Africa,-22.33,24.68,#0dbc37,5Botswana,Africa,-22.33,24.68,white,2Morroco,Africa,31.79,-7.09,#0dbc37,5Morroco,Africa,31.79,-7.09,white,2Kuala Lumpur,Malaysia,3.14,101.69,#0dbc37,5Kuala Lumpur,Malaysia,3.14,101.69,white,2Istanbul,Turkey,41.01,28.98,#f9bc26,5Istanbul,Turkey,41.01,28.98,white,2Singapore,Singapore,1.35,101.82,#f9bc26,5Singapore,Singapore,1.35,101.82,white,2Kyrgyzstan,Asia,41.2,74.77,#f9bc26,5Kyrgyzstan,Asia,41.2,74.77,white,2Edinburgh,Scotland,55.95,-3.19,#f9bc26,5Edinburgh,Scotland,55.95,-3.19,white,2Newport,Wales,51.58,-2.3,#f9bc26,5Newport,Wales,51.58,-2.3,white,2Rio,Brazil,-22.9,-43.17,#ef3aab,5Rio,Brazil,-22.9,-43.17,white,2San Francisco,USA,37.77,-122.41,#ef3aab,5San Francisco,USA,37.77,-122.41,white,2Berlin,Germany,,,,Berlin,Germany,,,,Istanbul,Turkey,,,,Istanbul,Turkey,,,,Mexico,,,,,Mexico,,,,,Rome,Italy,,,,Rome,Italy,,,,
