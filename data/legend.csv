@@ -1,0 +1,5 @@
+label,type,icon,width,height,offset_x,offset_y
+"Where we've presented",speaking,speaking.svg,15,15,0,0
+"Where we've trained",training,training.svg,15,15,0,0
+"Data project",project,project.svg,25,25,15,15
+"ODI Node",node,node.svg,12,12,0,0

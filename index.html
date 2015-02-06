@@ -33,106 +33,40 @@ var path = d3.geo.path()
 
 var g = svg.append("g");
 
-var distance = 200;
+var distance = 140;
+var image_data = {};
 
-var rect = svg.append("rect")
-	.attr("x", "20px")
-	.attr("y", height - (distance - 0) + "px")
-	.attr("width", 210)
-	.attr("height", 155)
-	.attr("rx", 5)
-	.attr("ry", 5)
-	.style("fill","gray")
-	.style("stroke","black");
+d3.csv("data/legend.csv", function(error, data) {
+   image_data = data;
+   var node = g.selectAll("svg")
+       .data(data)
+       .enter()
+       .append("g")
+       .attr("class","legend");
 
-svg.append("circle")
-       .attr("cx", "40px")
-       .attr("cy", height - (distance - 25) + "px")
-       .attr("r", 8)
-       .style("fill", "black");
-
-svg.append("circle")
-       .attr("cx", "40px")
-       .attr("cy", height - (distance - 25) + "px")
-       .attr("r", 3)
-       .style("fill", "white");
-
-svg.append("text")
-       .attr("dy", height - (distance - 30) + "px")
-       .attr("dx", "60px")
+   node.append("image")
+       .attr("xlink:href",function(d) {
+	       return "img/" + d.icon;
+       })
+       .attr("width",function(d) { return (d.width * 3);})
+       .attr("height",function(d) { return (d.height * 3);})
+       .attr("x", function(d,i) { return 40 - d.offset_x + "px";})
+       .attr("y", function(d,i) { return height - distance - (60 * i) - d.offset_y + "px";});
+ 
+   var node = g.selectAll("svg")
+	.data(data)
+	.enter()
+	.append("text")
+       .attr("dy", function(d,i) { return height - distance - (60 * i) + 25 + "px";})
+       .attr("dx", "90px")
        .attr("font-family", "sans-serif")
        .style("font-weight", "bold")
        .style("fill","black")
        .style("line","black")
        .style("font-size", "1em")
-       .text("ODI Node");
-
-svg.append("circle")
-       .attr("cx", "40px")
-       .attr("cy", height - (distance - 60) + "px")
-       .attr("r", 8)
-       .style("fill", "#black");
-
-svg.append("circle")
-       .attr("cx", "40px")
-       .attr("cy", height - (distance - 60) + "px")
-       .attr("r", 3)
-       .style("fill", "#b13198");
-
-svg.append("text")
-       .attr("dy", height - (distance - 65) + "px")
-       .attr("dx", "60px")
-       .attr("font-family", "sans-serif")
-       .style("font-weight", "bold")
-       .style("fill","#black")
-       .style("line","#black")
-       .style("font-size", "1em")
-       .text("ODI Training Node");
-
-svg.append("circle")
-       .attr("cx", "40px")
-       .attr("cy", height - (distance - 95) + "px")
-       .attr("r", 8)
-       .style("fill", "#0dbc37");
-
-svg.append("circle")
-       .attr("cx", "40px")
-       .attr("cy", height - (distance - 95) + "px")
-       .attr("r", 3)
-       .style("fill", "white");
-    
-svg.append("text")
-       .attr("dy", height - (distance - 100) + "px")
-       .attr("dx", "60px")
-       .attr("font-family", "sans-serif")
-       .style("font-weight", "bold")
-       .style("fill","#black")
-       .style("line","#black")
-       .style("font-size", "1em")
-       .text("Data project");
-
-svg.append("circle")
-       .attr("cx", "40px")
-       .attr("cy", height - (distance - 130) + "px")
-       .attr("r", 8)
-       .style("fill", "#f9bc26");
-
-svg.append("circle")
-       .attr("cx", "40px")
-       .attr("cy", height - (distance - 130) + "px")
-       .attr("r", 3)
-       .style("fill", "white");
-    
-svg.append("text")
-       .attr("dy", height - (distance - 135) + "px")
-       .attr("dx", "60px")
-       .attr("font-family", "sans-serif")
-       .style("font-weight", "bold")
-       .style("fill","#black")
-       .style("line","#black")
-       .style("font-size", "1em")
-       .text("Where we've trained");
-	
+       .text(function(d) {return d.label;});
+       
+});
 
 // load and display the World
 d3.json("data/world-50m.json", function(error, topology) {
@@ -144,15 +78,7 @@ d3.csv("data/places.csv", function(error, data) {
        .enter()
        .append("g")
        .attr("class","place");
-/*    node.append("rect")
-        .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; })
-        .attr("x", "0.6em")
-        .attr("y", "-0.6em")
-	.attr("width", 20)
-	.attr("height", 18)
-	.style("visibility", function(d) { if (d.radius > 2) { return "visible"; } else {return "hidden"; }})
-	.style("fill","black");
-*/
+    
     node.append("text")
        .attr("class", "place-label")
        .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; })
@@ -166,17 +92,45 @@ d3.csv("data/places.csv", function(error, data) {
     node.selectAll('rect')
 	.attr("width", function(d) {return (this.parentNode.getBBox().width)+5;});
 
-    node.append("circle")
-       .attr("cx", function(d) {
-               return projection([d.lon, d.lat])[0];
+    node.append('image')
+       .attr("xlink:href",function(d) {
+	       return "img/" + getImageSVG(image_data,d.type);
        })
-       .attr("cy", function(d) {
-               return projection([d.lon, d.lat])[1];
+       .attr("width",function(d) {return getImageWidth(image_data,d.type);})
+       .attr("height",function(d) {return getImageHeight(image_data,d.type);})
+       .attr("x", function(d) {
+               return projection([d.lon, d.lat])[0] - (getImageWidth(image_data,d.type) / 2);
        })
-       .attr("r", function(d) { return d.radius;})
-       .style("fill", function(d) { return d.color; });
+       .attr("y", function(d) {
+               return projection([d.lon, d.lat])[1] - (getImageHeight(image_data,d.type) / 2);
+       })
 });
 
+
+function getImageSVG(image_data,type) {
+	for (i=0;i<image_data.length;i++) {
+		thing = image_data[i];
+		if (thing.type == type) {
+			return thing.icon;
+		}
+	}
+}
+function getImageWidth(image_data,type) {
+	for (i=0;i<image_data.length;i++) {
+		thing = image_data[i];
+		if (thing.type == type) {
+			return thing.width;
+		}
+	}
+}
+function getImageHeight(image_data,type) {
+	for (i=0;i<image_data.length;i++) {
+		thing = image_data[i];
+		if (thing.type == type) {
+			return thing.height;
+		}
+	}
+}
 
 g.selectAll("path")
       .data(topojson.object(topology, topology.objects.countries)
@@ -187,6 +141,8 @@ g.selectAll("path")
       .style("fill","#e96421") 
 });
 
+var maxwidth = 3;
+var maxheight = 3;
 // zoom and pan
 var zoom = d3.behavior.zoom()
     .on("zoom",function() {
@@ -196,8 +152,31 @@ var zoom = d3.behavior.zoom()
             .attr("d", path.projection(projection));
         g.selectAll("path") 
             .attr("d", path.projection(projection)); 
-	g.selectAll("circle")
-		.attr("r", function(d) { return d.radius / d3.event.scale;})
+	g.selectAll("image")
+		.attr("width", function(d) { 
+			var nw = getImageWidth(image_data,d.type) / d3.event.scale;
+			if (nw < maxwidth) {
+				return maxwidth;
+			}
+			return nw;
+		})
+		.attr("height", function(d) { 
+			var nh = getImageHeight(image_data,d.type) / d3.event.scale;
+			if (nh < maxheight) {
+				nh = maxheight;
+			}
+			return nh;
+		})
+       		 .attr("x", function(d) {
+		       var nw = getImageWidth(image_data,d.type) / d3.event.scale;
+		       if (nw < maxwidth) nw = maxwidth;
+	               return projection([d.lon, d.lat])[0] - (nw / 2);
+                 })
+	         .attr("y", function(d) {
+		       var nh = getImageHeight(image_data,d.type) / d3.event.scale;
+		       if (nh < maxheight) nh = maxheight;
+                       return projection([d.lon, d.lat])[1] - (nh / 2);
+	         });
 	g.selectAll("text") 
 		.style("visibility", function(d) { if (d.radius > 2 && d3.event.scale > 1.5) { return "visible"; } else { return "hidden";}})
        		.style("font-size", function(d) { var ret = 1 / d3.event.scale; if (ret > 1) ret=1; return ret+ "em";})
@@ -208,7 +187,6 @@ var zoom = d3.behavior.zoom()
 svg.call(zoom)
 
 function resize() {
-    console.log('hello');
     // adjust things when the window size changes
     width = parseInt(d3.select('body').style('width'));
     width = width - margin.left - margin.right;
